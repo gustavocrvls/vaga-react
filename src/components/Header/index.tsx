@@ -6,7 +6,7 @@ export function Header(): JSX.Element {
   return (
     <Flex
       as="header"
-      padding="3rem"
+      padding={[1, 3]}
       backgroundColor="#EBCD62"
       align="center"
       justifyContent="space-between"
@@ -15,10 +15,10 @@ export function Header(): JSX.Element {
       zIndex="100"
     >
       <Flex align="center">
-        <Img src={iconImg} alt="Aviaras" />
+        <Img src={iconImg} alt="Aviaras" width={[10, '100%']} />
         <Heading as="h1">Aviaras</Heading>
       </Flex>
-      <FiShoppingBag size="48" />
+      <FiShoppingBag size="34" />
     </Flex>
   );
 }
