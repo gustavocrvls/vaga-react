@@ -12,6 +12,7 @@ export function Header(): JSX.Element {
       justifyContent="space-between"
       position="sticky"
       top="0"
+      zIndex="100"
     >
       <Flex align="center">
         <Img src={iconImg} alt="Aviaras" />
