@@ -22,6 +22,13 @@ const theme = extendTheme({
       },
     },
   },
+  components: {
+    Button: {
+      baseStyle: {
+        fontFamily: 'Karla, system-ui, sans-serif',
+      },
+    },
+  },
 });
 
 export default theme;

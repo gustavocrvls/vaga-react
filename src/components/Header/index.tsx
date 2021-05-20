@@ -6,10 +6,12 @@ export function Header(): JSX.Element {
   return (
     <Flex
       as="header"
-      padding="4rem"
+      padding="3rem"
       backgroundColor="#EBCD62"
       align="center"
       justifyContent="space-between"
+      position="sticky"
+      top="0"
     >
       <Flex align="center">
         <Img src={iconImg} alt="Aviaras" />
