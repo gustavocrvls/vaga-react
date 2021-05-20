@@ -12,7 +12,13 @@ export function Item(): JSX.Element {
       align="center"
     >
       <Flex>
-        <Img src={bookImg} alt="Book" height="130px" margin="0 10px 0 0" />
+        <Img
+          src={bookImg}
+          alt="Book"
+          height="130px"
+          margin="0 10px 0 0"
+          borderRadius="md"
+        />
         <Flex direction="column" justifyContent="space-between">
           <Heading as="h1">Ordem Vermelha</Heading>
           <Text as="strong" fontWeight="600" fontSize="xl">

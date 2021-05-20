@@ -11,8 +11,15 @@ export function Item(): JSX.Element {
       justifyContent="space-between"
       align="center"
     >
-      <Flex>
-        <Img src={bookImg} alt="Book" height="130px" margin="0 10px 0 0" />
+      <Stack align="center" width="100%">
+        <Img
+          src={bookImg}
+          alt="Book"
+          width="100%"
+          height="120px"
+          objectFit="cover"
+          borderRadius="md"
+        />
         <Flex direction="column" justifyContent="space-between">
           <Heading as="h1">Ordem Vermelha</Heading>
           <Text as="strong" fontWeight="600" fontSize="xl">
@@ -26,10 +33,16 @@ export function Item(): JSX.Element {
             <FiStar />
           </Stack>
         </Flex>
-      </Flex>
-      <Button type="button" colorScheme="blackAlpha" backgroundColor="#3D3D3D">
-        Mais Detalhes
-      </Button>
+        <Flex justifyContent="flex-end" width="100%">
+          <Button
+            type="button"
+            colorScheme="blackAlpha"
+            backgroundColor="#3D3D3D"
+          >
+            Mais Detalhes
+          </Button>
+        </Flex>
+      </Stack>
     </Flex>
   );
 }
