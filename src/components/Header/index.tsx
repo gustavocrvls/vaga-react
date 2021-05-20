@@ -1,10 +1,21 @@
-import { Box } from '@chakra-ui/react';
-import { HeaderProps } from './dtos';
+import { Flex, Heading, Img, Text } from '@chakra-ui/react';
+import { FiShoppingBag } from 'react-icons/fi';
+import iconImg from '../../assets/icon.svg';
 
 export function Header(): JSX.Element {
   return (
-    <Box as="header" padding="4rem" backgroundColor="#EBCD62">
-      Aviaras
-    </Box>
+    <Flex
+      as="header"
+      padding="4rem"
+      backgroundColor="#EBCD62"
+      align="center"
+      justifyContent="space-between"
+    >
+      <Flex align="center">
+        <Img src={iconImg} alt="Aviaras" />
+        <Heading as="h1">Aviaras</Heading>
+      </Flex>
+      <FiShoppingBag size="48" />
+    </Flex>
   );
 }

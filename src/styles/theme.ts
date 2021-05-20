@@ -2,9 +2,9 @@ import { extendTheme } from '@chakra-ui/react';
 
 const theme = extendTheme({
   fonts: {
-    body: 'Noto Sans, system-ui, sans-serif',
-    heading: 'Noto Sans, system-ui, sans-serif',
-    mono: 'Noto Sans, system-ui, sans-serif',
+    body: 'Martel, system-ui, sans-serif',
+    heading: 'Karla, system-ui, sans-serif',
+    mono: 'Martel, system-ui, sans-serif',
   },
   styles: {
     global: {
