@@ -1,6 +1,5 @@
-import { Box, Button, Flex, Heading, Img, Stack, Text } from '@chakra-ui/react';
+import { Button, Flex, Heading, Img, Stack, Text } from '@chakra-ui/react';
 import { FiStar } from 'react-icons/fi';
-import bookImg from '../../../../../../assets/book.png';
 
 export function Item(): JSX.Element {
   return (
@@ -13,7 +12,7 @@ export function Item(): JSX.Element {
     >
       <Flex>
         <Img
-          src={bookImg}
+          src="https://m.media-amazon.com/images/I/51Y+hQTWOsL.jpg"
           alt="Book"
           height="130px"
           margin="0 10px 0 0"

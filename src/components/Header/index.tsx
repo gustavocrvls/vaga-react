@@ -1,4 +1,4 @@
-import { Flex, Heading, Img, Text } from '@chakra-ui/react';
+import { Flex, Heading, Img } from '@chakra-ui/react';
 import { FiShoppingBag } from 'react-icons/fi';
 import iconImg from '../../assets/icon.svg';
 
