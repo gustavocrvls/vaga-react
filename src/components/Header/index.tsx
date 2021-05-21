@@ -1,8 +1,12 @@
 import { Flex, Heading, Img } from '@chakra-ui/react';
+import { useContext } from 'react';
 import { FiShoppingBag } from 'react-icons/fi';
 import iconImg from '../../assets/icon.svg';
+import { CartContext } from '../../contexts/CartContext';
 
 export function Header(): JSX.Element {
+  const { items } = useContext(CartContext);
+
   return (
     <Flex
       as="header"
@@ -18,6 +22,7 @@ export function Header(): JSX.Element {
         <Img src={iconImg} alt="Aviaras" width={[10, '100%']} />
         <Heading as="h1">Aviaras</Heading>
       </Flex>
+      {items.reduce((pv, cv) => pv + cv.quantity, 0)}
       <FiShoppingBag size="34" />
     </Flex>
   );

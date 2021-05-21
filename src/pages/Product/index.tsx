@@ -10,20 +10,35 @@ import {
   Spinner,
   Text,
 } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
-import { FiMinus, FiPlus } from 'react-icons/fi';
+import { useContext, useEffect, useState } from 'react';
+import { FiArrowLeft, FiMinus, FiPlus } from 'react-icons/fi';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Rating } from '../../components/Rating';
+import { CartContext } from '../../contexts/CartContext';
 import { api } from '../../services/api';
 import { ParamTypes, Book } from './dtos';
 
 export function Product(): JSX.Element {
   const [isLoading, setIsLoading] = useState(true);
-  const [value, setValue] = useState('0');
+  const [quantity, setQuantity] = useState('0');
   const [book, setBook] = useState<Book>({} as Book);
 
   const { id } = useParams<ParamTypes>();
+
+  const { addItem } = useContext(CartContext);
+
+  function buy() {
+    if (Number(quantity) === 0) {
+      console.log('err');
+    } else {
+      addItem({
+        id: Number(id),
+        quantity: Number(quantity),
+      });
+      setQuantity('0');
+    }
+  }
 
   useEffect(() => {
     try {
@@ -40,7 +55,9 @@ export function Product(): JSX.Element {
   return (
     <Box marginTop="3">
       {isLoading ? (
-        <Spinner />
+        <Flex align="center" justifyContent="center">
+          <Spinner size="lg" />
+        </Flex>
       ) : (
         <>
           <Button
@@ -48,8 +65,9 @@ export function Product(): JSX.Element {
             to="/products"
             marginBottom="3"
             colorScheme="yellow"
+            leftIcon={<FiArrowLeft />}
           >
-            Menu
+            Voltar
           </Button>
           <Flex>
             <Img
@@ -79,23 +97,25 @@ export function Product(): JSX.Element {
                     aria-label="Minus"
                     icon={<FiMinus />}
                     onClick={() => {
-                      setValue(
-                        Number(value) > 0 ? String(Number(value) - 1) : '0',
+                      setQuantity(
+                        Number(quantity) > 0
+                          ? String(Number(quantity) - 1)
+                          : '0',
                       );
                     }}
                   />
                   <Input
                     margin="0 5px"
-                    value={value}
+                    value={quantity}
                     type="number"
-                    onChange={e => setValue(e.target.value)}
+                    onChange={e => setQuantity(e.target.value)}
                     textAlign="center"
                   />
                   <IconButton
                     aria-label="Minus"
                     icon={<FiPlus />}
                     onClick={() => {
-                      setValue(String(Number(value) + 1));
+                      setQuantity(String(Number(quantity) + 1));
                     }}
                   />
                 </HStack>
@@ -105,6 +125,7 @@ export function Product(): JSX.Element {
                   type="button"
                   colorScheme="blackAlpha"
                   backgroundColor="#3D3D3D"
+                  onClick={() => buy()}
                 >
                   Comprar
                 </Button>
