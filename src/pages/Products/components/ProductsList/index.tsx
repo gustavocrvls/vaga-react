@@ -5,9 +5,9 @@ import { ProductsListProps } from './dtos';
 export function ProductsList({ products }: ProductsListProps): JSX.Element {
   return (
     <Stack>
-      <Item />
-      <Item />
-      <Item />
+      {products.map(product => (
+        <Item product={product} />
+      ))}
     </Stack>
   );
 }

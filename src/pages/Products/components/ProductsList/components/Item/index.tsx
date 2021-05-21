@@ -1,8 +1,8 @@
-import { Button, Flex, Heading, Img, Stack, Text } from '@chakra-ui/react';
-import { FiStar } from 'react-icons/fi';
+import { Button, Flex, Heading, Img, Text } from '@chakra-ui/react';
 import { Rating } from '../../../../../../components/Rating';
+import { ItemProps } from './dtos';
 
-export function Item(): JSX.Element {
+export function Item({ product }: ItemProps): JSX.Element {
   return (
     <Flex
       padding="2"
@@ -13,18 +13,21 @@ export function Item(): JSX.Element {
     >
       <Flex>
         <Img
-          src="https://m.media-amazon.com/images/I/51Y+hQTWOsL.jpg"
+          src={product.cover}
           alt="Book"
           height="130px"
           margin="0 10px 0 0"
           borderRadius="md"
         />
         <Flex direction="column" justifyContent="space-between">
-          <Heading as="h1">Ordem Vermelha</Heading>
+          <Heading as="h1">{product.title}</Heading>
           <Text as="strong" fontWeight="600" fontSize="xl">
-            R$ 40,00
+            {new Intl.NumberFormat('pt-br', {
+              style: 'currency',
+              currency: 'BRL',
+            }).format(product.price)}
           </Text>
-          <Rating value={1} />
+          <Rating value={product.rating} />
         </Flex>
       </Flex>
       <Button type="button" colorScheme="blackAlpha" backgroundColor="#3D3D3D">
