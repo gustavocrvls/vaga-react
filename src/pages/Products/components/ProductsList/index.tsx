@@ -1,7 +1,8 @@
 import { Stack } from '@chakra-ui/react';
 import { Item } from './components/Item';
+import { ProductsListProps } from './dtos';
 
-export function ProductsList(): JSX.Element {
+export function ProductsList({ products }: ProductsListProps): JSX.Element {
   return (
     <Stack>
       <Item />

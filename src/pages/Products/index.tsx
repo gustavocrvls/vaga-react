@@ -1,11 +1,18 @@
 import { Box, ButtonGroup, Flex, IconButton } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FiGrid, FiList } from 'react-icons/fi';
+import { api } from '../../services/api';
 import { ProductsCards } from './components/ProductsCards';
 import { ProductsList } from './components/ProductsList';
+import { Product } from './dtos';
 
 export function Products(): JSX.Element {
   const [view, setView] = useState('grid');
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    api.get('products').then(response => setProducts(response.data));
+  }, []);
 
   return (
     <Box marginTop="2">
@@ -29,7 +36,11 @@ export function Products(): JSX.Element {
           />
         </ButtonGroup>
       </Flex>
-      {view === 'list' ? <ProductsList /> : <ProductsCards />}
+      {view === 'list' ? (
+        <ProductsList products={products} />
+      ) : (
+        <ProductsCards products={products} />
+      )}
     </Box>
   );
 }

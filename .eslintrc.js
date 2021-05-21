@@ -48,6 +48,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'react/react-in-jsx-scope': 'off',
     'react-hooks/exhaustive-deps': 'off',
+    'import/no-extraneous-dependencies': 'off',
   },
   settings: {
     'import/resolver': {

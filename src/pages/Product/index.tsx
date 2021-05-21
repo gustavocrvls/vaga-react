@@ -11,7 +11,7 @@ import {
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { FiMinus, FiPlus } from 'react-icons/fi';
-import { Evaluation } from '../../components/Evaluation';
+import { Rating } from '../../components/Rating';
 
 export function Product(): JSX.Element {
   const [value, setValue] = useState('0');
@@ -31,7 +31,7 @@ export function Product(): JSX.Element {
           <Heading marginBottom="2" as="h1">
             Ordem Vermelha
           </Heading>
-          <Evaluation />
+          <Rating value={2} />
           <Text marginTop="2" fontSize="xl">
             R$ 40,00
           </Text>

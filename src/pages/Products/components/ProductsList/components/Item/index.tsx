@@ -1,5 +1,6 @@
 import { Button, Flex, Heading, Img, Stack, Text } from '@chakra-ui/react';
 import { FiStar } from 'react-icons/fi';
+import { Rating } from '../../../../../../components/Rating';
 
 export function Item(): JSX.Element {
   return (
@@ -23,13 +24,7 @@ export function Item(): JSX.Element {
           <Text as="strong" fontWeight="600" fontSize="xl">
             R$ 40,00
           </Text>
-          <Stack direction="row">
-            <FiStar fill="#3D3D3D" stroke="#3D3D3D" />
-            <FiStar fill="#3D3D3D" stroke="#3D3D3D" />
-            <FiStar fill="#3D3D3D" stroke="#3D3D3D" />
-            <FiStar />
-            <FiStar />
-          </Stack>
+          <Rating value={1} />
         </Flex>
       </Flex>
       <Button type="button" colorScheme="blackAlpha" backgroundColor="#3D3D3D">
