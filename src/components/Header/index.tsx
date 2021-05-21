@@ -1,4 +1,5 @@
 import { Box, Flex, Heading, Img } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 import iconImg from '../../assets/icon.svg';
 import { Bag } from './components/Bag';
 
@@ -16,15 +17,17 @@ export function Header(): JSX.Element {
         maxWidth="1100px"
         margin="0 auto"
       >
-        <Flex align="center">
-          <Img
-            src={iconImg}
-            alt="Aviaras"
-            width={[10, '40px']}
-            marginRight="3"
-          />
-          <Heading as="h1">Aviaras</Heading>
-        </Flex>
+        <Link to="/products">
+          <Flex align="center">
+            <Img
+              src={iconImg}
+              alt="Aviaras"
+              width={[10, '40px']}
+              marginRight="3"
+            />
+            <Heading as="h1">Aviaras</Heading>
+          </Flex>
+        </Link>
         <Bag />
       </Flex>
     </Box>
