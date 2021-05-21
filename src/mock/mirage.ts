@@ -34,5 +34,11 @@ createServer({
     this.get('/products', (schema, request) => {
       return schema.db.products;
     });
+
+    this.get('/products/:id', (schema, request) => {
+      const product = schema.db.products.find(request.params.id);
+
+      return product;
+    });
   },
 });

@@ -1,4 +1,5 @@
 import { Button, Flex, Heading, Img, Text } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 import { Rating } from '../../../../../../components/Rating';
 import { ItemProps } from './dtos';
 
@@ -30,7 +31,13 @@ export function Item({ product }: ItemProps): JSX.Element {
           <Rating value={product.rating} />
         </Flex>
       </Flex>
-      <Button type="button" colorScheme="blackAlpha" backgroundColor="#3D3D3D">
+      <Button
+        as={Link}
+        to={`/products/${product.id}`}
+        type="button"
+        colorScheme="blackAlpha"
+        backgroundColor="#3D3D3D"
+      >
         Mais Detalhes
       </Button>
     </Flex>
