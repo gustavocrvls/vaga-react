@@ -6,7 +6,7 @@ export function ProductsList({ products }: ProductsListProps): JSX.Element {
   return (
     <Stack>
       {products.map(product => (
-        <Item product={product} />
+        <Item product={product} key={product.id} />
       ))}
     </Stack>
   );
