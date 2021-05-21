@@ -28,6 +28,11 @@ const theme = extendTheme({
         fontFamily: 'Karla, system-ui, sans-serif',
       },
     },
+    Badge: {
+      baseStyle: {
+        fontFamily: 'Karla, system-ui, sans-serif',
+      },
+    },
   },
 });
 

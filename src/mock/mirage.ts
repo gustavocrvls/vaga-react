@@ -31,7 +31,7 @@ createServer({
   routes() {
     this.namespace = 'api';
 
-    this.get('/products', (schema, request) => {
+    this.get('/products', schema => {
       return schema.db.products;
     });
 
