@@ -1,5 +1,4 @@
 import { Button, Flex, Heading, Img, Stack, Text } from '@chakra-ui/react';
-import { FiStar } from 'react-icons/fi';
 import { Rating } from '../../../../../../components/Rating';
 import { ItemProps } from './dtos';
 

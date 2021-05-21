@@ -18,7 +18,7 @@ createServer({
           
           com essa fagulha de esperança, mais indivíduos se unem à causa e mostram a una que seus dias talvez estejam contados. Um grupo instável e heterogêneo que precisará resolver suas diferenças a fim não só de desvendar os segredos de untherak, mas também enfrentar seu mais terrível guardião, o general proghon, e preparar-se para a possibilidade de um futuro totalmente desconhecido. Se uma deusa cai, o que vem depois?`,
           cover: 'https://m.media-amazon.com/images/I/51Y+hQTWOsL.jpg',
-          rating: 4,
+          rating: 3.1,
         },
       ];
     });
