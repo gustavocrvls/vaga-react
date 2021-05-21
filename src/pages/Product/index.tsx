@@ -69,7 +69,7 @@ export function Product(): JSX.Element {
           >
             Voltar
           </Button>
-          <Flex>
+          <Flex direction={['column', 'row']} marginBottom="5">
             <Img
               src={book.cover}
               alt="Book"
