@@ -1,5 +1,5 @@
-export interface ProductProps {
-  id: number;
+export interface ParamTypes {
+  id: string;
 }
 
 export interface Book {
