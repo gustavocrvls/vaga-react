@@ -1,13 +1,13 @@
 import { createContext, ReactNode, useState } from 'react';
 
-interface Item {
+export interface CartItem {
   id: number;
   quantity: number;
 }
 
 interface CartContextData {
-  items: Item[];
-  addItem: (item: Item) => void;
+  items: CartItem[];
+  addItem: (item: CartItem) => void;
 }
 
 interface CartProviderProps {
@@ -17,9 +17,9 @@ interface CartProviderProps {
 export const CartContext = createContext({} as CartContextData);
 
 export function CartProvider({ children }: CartProviderProps): JSX.Element {
-  const [items, setItems] = useState<Item[]>([]);
+  const [items, setItems] = useState<CartItem[]>([]);
 
-  function addItem(item: Item) {
+  function addItem(item: CartItem) {
     if (items.find(it => it.id === item.id)) {
       const newItems = items.map(it =>
         it.id === item.id

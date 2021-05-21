@@ -4,10 +4,10 @@ import { Bag } from './components/Bag';
 
 export function Header(): JSX.Element {
   return (
-    <Box backgroundColor="#EBCD62">
+    <Box backgroundColor="#EBCD62" marginBottom="3">
       <Flex
         as="header"
-        padding={[1, 3]}
+        padding={[2, 5]}
         align="center"
         justifyContent="space-between"
         position="sticky"
@@ -17,7 +17,12 @@ export function Header(): JSX.Element {
         margin="0 auto"
       >
         <Flex align="center">
-          <Img src={iconImg} alt="Aviaras" width={[10, '100%']} />
+          <Img
+            src={iconImg}
+            alt="Aviaras"
+            width={[10, '40px']}
+            marginRight="3"
+          />
           <Heading as="h1">Aviaras</Heading>
         </Flex>
         <Bag />

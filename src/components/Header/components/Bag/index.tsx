@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { IconButton } from '@chakra-ui/button';
 import { FiShoppingBag } from 'react-icons/fi';
 import { Badge, Box } from '@chakra-ui/layout';
+import { Link } from 'react-router-dom';
 import { CartContext } from '../../../../contexts/CartContext';
 
 export function Bag(): JSX.Element {
@@ -21,6 +22,8 @@ export function Bag(): JSX.Element {
           {items.reduce((pv, cv) => pv + cv.quantity, 0)}
         </Badge>
         <IconButton
+          as={Link}
+          to="/bag"
           aria-label="sacola"
           icon={<FiShoppingBag size="34" />}
           colorScheme="yellow"

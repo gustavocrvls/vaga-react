@@ -53,7 +53,7 @@ export function Product(): JSX.Element {
   }, []);
 
   return (
-    <Box marginTop="3">
+    <Box>
       {isLoading ? (
         <Flex align="center" justifyContent="center">
           <Spinner size="lg" />

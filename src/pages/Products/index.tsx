@@ -15,7 +15,7 @@ export function Products(): JSX.Element {
   }, []);
 
   return (
-    <Box marginTop="2">
+    <Box>
       <Flex justifyContent="flex-end" margin="10px 0">
         <ButtonGroup size="md" isAttached variant="outline">
           <IconButton
