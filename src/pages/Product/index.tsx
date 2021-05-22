@@ -32,10 +32,14 @@ export function Product(): JSX.Element {
     if (Number(quantity) === 0) {
       console.log('err');
     } else {
-      addItem({
-        id: Number(id),
-        quantity: Number(quantity),
-      });
+      addItem(
+        {
+          id: Number(id),
+          quantity: Number(quantity),
+        },
+        Number(book.price),
+      );
+
       setQuantity('0');
     }
   }

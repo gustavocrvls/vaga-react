@@ -1,7 +1,6 @@
 import { Box, Flex, Heading, Img, Text } from '@chakra-ui/react';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Rating } from '../../../../../../components/Rating';
-import { CartContext } from '../../../../../../contexts/CartContext';
 import { api } from '../../../../../../services/api';
 import { Product as IProduct } from '../../../../../Products/dtos';
 import { ProductProps } from './dtos';
@@ -9,12 +8,9 @@ import { ProductProps } from './dtos';
 export function Product({ item }: ProductProps): JSX.Element {
   const [product, setProduct] = useState<IProduct>({} as IProduct);
 
-  const { addSubtotal } = useContext(CartContext);
-
   useEffect(() => {
     api.get(`products/${item.id}`).then(response => {
       setProduct(response.data);
-      addSubtotal(response.data.price * item.quantity);
     });
   }, []);
 
