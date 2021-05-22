@@ -10,13 +10,17 @@ import { Product } from './dtos';
 export function Products(): JSX.Element {
   const [view, setView] = useState('grid');
   const [products, setProducts] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   async function loadData() {
     try {
+      setIsLoading(true);
       const response = await api.get('products');
       setProducts(response.data);
     } catch (err) {
       notifyError('Não foi possível carregar os dados...');
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -47,9 +51,9 @@ export function Products(): JSX.Element {
         </ButtonGroup>
       </Flex>
       {view === 'list' ? (
-        <ProductsList products={products} />
+        <ProductsList products={products} isLoading={isLoading} />
       ) : (
-        <ProductsCards products={products} />
+        <ProductsCards products={products} isLoading={isLoading} />
       )}
     </Box>
   );
