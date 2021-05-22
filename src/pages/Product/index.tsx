@@ -17,12 +17,12 @@ import { Link } from 'react-router-dom';
 import { Rating } from '../../components/Rating';
 import { BagContext } from '../../contexts/BagContext';
 import { api } from '../../services/api';
-import { ParamTypes, Book } from './dtos';
+import { ParamTypes, IProduct } from './dtos';
 
 export function Product(): JSX.Element {
   const [isLoading, setIsLoading] = useState(true);
   const [quantity, setQuantity] = useState('0');
-  const [book, setBook] = useState<Book>({} as Book);
+  const [product, setProduct] = useState<IProduct>({} as IProduct);
 
   const { id } = useParams<ParamTypes>();
 
@@ -37,7 +37,7 @@ export function Product(): JSX.Element {
           id: Number(id),
           quantity: Number(quantity),
         },
-        Number(book.price),
+        Number(product.price),
       );
 
       setQuantity('0');
@@ -49,7 +49,7 @@ export function Product(): JSX.Element {
       setIsLoading(true);
       api
         .get(`products/${id}`)
-        .then(response => setBook(response.data))
+        .then(response => setProduct(response.data))
         .then(() => setIsLoading(false));
     } catch (err) {
       console.error(err);
@@ -75,8 +75,8 @@ export function Product(): JSX.Element {
           </Button>
           <Flex direction={['column', 'row']} marginBottom="5">
             <Img
-              src={book.cover}
-              alt="Book"
+              src={product.cover}
+              alt="IProduct"
               height="500px"
               objectFit="cover"
               borderRadius="md"
@@ -84,16 +84,16 @@ export function Product(): JSX.Element {
             />
             <Box>
               <Heading marginBottom="2" as="h1">
-                {book.title}
+                {product.title}
               </Heading>
-              <Rating value={book.rating || 0} />
+              <Rating value={product.rating || 0} />
               <Text marginTop="2" fontSize="xl">
                 {new Intl.NumberFormat('pt-br', {
                   style: 'currency',
                   currency: 'BRL',
-                }).format(book.price)}
+                }).format(product.price)}
               </Text>
-              <Text marginTop="2">{book.description}</Text>
+              <Text marginTop="2">{product.description}</Text>
 
               <Flex marginTop="2" justifyContent="flex-end">
                 <HStack maxW="200px">

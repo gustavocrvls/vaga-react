@@ -15,7 +15,7 @@ export function Item({ product }: ItemProps): JSX.Element {
       <Flex>
         <Img
           src={product.cover}
-          alt="Book"
+          alt="Capa"
           height="130px"
           margin="0 10px 0 0"
           borderRadius="md"

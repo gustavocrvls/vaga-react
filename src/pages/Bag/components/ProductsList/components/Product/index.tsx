@@ -2,7 +2,7 @@ import { Box, Flex, Heading, Img, Text } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { Rating } from '../../../../../../components/Rating';
 import { api } from '../../../../../../services/api';
-import { Product as IProduct } from '../../../../../Products/dtos';
+import { IProduct } from '../../../../../Products/dtos';
 import { ProductProps } from './dtos';
 
 export function Product({ item }: ProductProps): JSX.Element {

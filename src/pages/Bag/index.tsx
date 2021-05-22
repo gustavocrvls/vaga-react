@@ -1,5 +1,5 @@
 import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { BagContext } from '../../contexts/BagContext';

@@ -5,11 +5,11 @@ import { notifyError } from '../../components/Notifications';
 import { api } from '../../services/api';
 import { ProductsCards } from './components/ProductsCards';
 import { ProductsList } from './components/ProductsList';
-import { Product } from './dtos';
+import { IProduct } from './dtos';
 
 export function Products(): JSX.Element {
   const [view, setView] = useState('grid');
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<IProduct[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
   async function loadData() {

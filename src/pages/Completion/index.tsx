@@ -1,5 +1,5 @@
 import { Box, Button, Flex, Heading } from '@chakra-ui/react';
-import { FiCheck, FiCheckCircle } from 'react-icons/fi';
+import { FiCheckCircle } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { ProductsList } from '../Bag/components/ProductsList';
 import { PaymentSummary } from './components/PaymentSummary';

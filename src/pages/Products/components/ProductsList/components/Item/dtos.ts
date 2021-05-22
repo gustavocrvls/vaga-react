@@ -1,5 +1,5 @@
-import { Product } from '../../../../dtos';
+import { IProduct } from '../../../../dtos';
 
 export interface ItemProps {
-  product: Product;
+  product: IProduct;
 }

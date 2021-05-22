@@ -2,7 +2,7 @@ export interface ParamTypes {
   id: string;
 }
 
-export interface Book {
+export interface IProduct {
   id: number;
   title: string;
   price: number;

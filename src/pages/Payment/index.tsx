@@ -11,7 +11,6 @@ import {
 } from '@chakra-ui/react';
 import { useContext } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
-
 import InputMask from 'react-input-mask';
 import { Link } from 'react-router-dom';
 import { BagContext } from '../../contexts/BagContext';

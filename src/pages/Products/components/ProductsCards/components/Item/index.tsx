@@ -15,7 +15,7 @@ export function Item({ product }: ItemProps): JSX.Element {
         <Box>
           <Img
             src={product.cover}
-            alt="Book"
+            alt="Capa"
             width="100%"
             height="120px"
             objectFit="cover"

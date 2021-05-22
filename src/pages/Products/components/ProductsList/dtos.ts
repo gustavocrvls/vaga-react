@@ -1,6 +1,6 @@
-import { Product } from '../../dtos';
+import { IProduct } from '../../dtos';
 
 export interface ProductsListProps {
-  products: Product[];
+  products: IProduct[];
   isLoading: boolean;
 }
