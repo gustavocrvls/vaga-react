@@ -14,11 +14,7 @@ import { useContext, useEffect, useState } from 'react';
 import { FiArrowLeft, FiMinus, FiPlus } from 'react-icons/fi';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
-import {
-  notifyError,
-  notifySuccess,
-  notifyWarning,
-} from '../../components/Notifications';
+import { notifyError, notifySuccess } from '../../components/Notifications';
 import { Rating } from '../../components/Rating';
 import { BagContext } from '../../contexts/BagContext';
 import { api } from '../../services/api';
