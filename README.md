@@ -1,46 +1,154 @@
-# Getting Started with Create React App
+# Aviaras
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 💡 Sobre o Projeto
 
-## Available Scripts
+O Aviaras é um e-commerce de venda de livros, criado para um desafio de uma vaga de Desenvolvedor React.
 
-In the project directory, you can run:
+Você pode dar uma olhada no protótipo do projeto em: <a href="https://www.figma.com/file/GDy54b1FivId18s46GMZOQ/Aviaras?node-id=3%3A72" target="_blank">Aviaras</a>
 
-### `yarn start`
+O projeto também pode ser acessado em: <a href="https://vaga-react.vercel.app/" target="_blank">Aviaras</a>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<details>
+  <summary>Detalhes do Desafio</summary>
+  
+  # A RockApps
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  Desenvolvimento ágil e profissional de produtos e ideias, utilizando modernas tecnologias através de um modelo de custos acessível e flexível. A atuação de nossa empresa busca personalizar projetos e aplicações integrar soluções aos sistemas pré-existentes de nossos clientes. Sempre atualizados com as novas tecnologias de mercado, trazemos conosco aplicações inovadoras que certamente atenderão sua necessidade. Hoje em dia, a RK se consolidou no mercado, possuindo mais de 50 clientes e mais de 60 softwares e aplicativos criados. Realizações que nos mantém em andamento.
 
-### `yarn test`
+  Conheça mais sobre nossa empresa em https://rockapps.com.br.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  ## O Teste
 
-### `yarn build`
+  Teste para candidatos à vaga de Desenvolvedor React e/ou React Native Júnior, Pleno e Sênior. O teste é o mesmo para todos os níveis! Nós fazemos isso esperando que os devs mais iniciantes entendam qual o modelo de profissional que temos por aqui e que buscamos para o nosso time. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  Você deverá criar um fork deste projeto, e desenvolver em cima do seu fork. Use o README principal do seu repositório para nos contar como foi resolver seu teste, as decisões tomadas, como você organizou e separou seu código, e principalmente as instruções de como rodar seu projeto, afinal a primeira pessoa que irá rodar seu projeto será um programador de nossa equipe, e se você conseguir explicar para ele como fazer isso, você já começou bem!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  Nós não definimos um tempo limite para resolução deste teste, o que vale para nós e o resultado final e a evolução da criação do projeto até se atingir este resultado, mas acreditamos que este desafio pode ser resolvido em cerca de 24 horas de codificação.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  **Para iniciar, faça um fork deste projeto.**
 
-### `yarn eject`
+  Em seguida, é **fundamental** o preenchimento do formulário https://link.rockapps.com.br/vaga-dev-react. Demora 5 minutinhos! Se necessário, entre em contato com a gente em carreiras@rockapps.com.br.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  ## As Instruções 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+  O desafio consiste na implementação de um e-Commerce Web ou Mobile utilizando o framework React ou React Native. Os dados deverão ser mockados. Fique à vontade para utilizar boilerplates e outras bibliotecas disponíveis (Expo, CRA, Bootstrap, Material, etc).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  ### Principais telas a serem desenvolvidas
 
-## Learn More
+  - Lista de produtos
+      - Modo lista e modo cards
+      - Filtros
+  - Página de Produto
+      - Fotos do Produto
+      - Descrição
+      - Avaliações 
+  - Página de Carrinho / Checkout
+  - Página de pagamento (cadastro de cartão)
+  - Página de confirmação da compra
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ### Processo Principal
+
+   1. Usuário deverá se autenticar (ou se cadastrar)
+   1. Usuário devera trocas a foto de perfil
+   1. Usuário deverá incluir um item no carrinho
+   1. Usuário deverá incluir outro item no carrinho
+   1. Usuário deverá remover o primeiro item do carrinho
+   1. Usuário deverá finalizar o carrinho e confirmar a compra do pedido
+
+  #### O que queremos que você demonstre
+
+  - Código limpo
+  - Reutilização de componentes visuais
+  - Hooks
+  - Requisições RESTFul (se aplicável)
+  - Histórico de commits do git
+  - As instruções de como rodar o projeto
+  - Organização, semântica, estrutura, legibilidade, manutenibilidade do seu código
+  - Alcance dos objetivos propostos
+  - Componentização e extensibilidade dos componentes Javascript
+
+  #### O que gostaríamos de ver
+
+  - Testes unitários
+  - Interface limpa e intuitiva
+  - Foco na experiência e jornada do usuário (loading, modais, exibição de lista vazia (sem resultados), tooltips)
+  - Reutilização novos componentes
+  - Gerenciamento de estado (Redux)
+  - Requisições RESTFul (Axios)
+
+  #### O que seria incrível
+
+  - Ejetar o Expo e rodar a partir do xCode e do Android Studio
+  - Testes e2e
+  - SEO na página do produto
+  - Animações (Lootie e/ou CSS)
+  - Autenticação (token JWT) e rotas protegidas
+  - Sockets
+  - Publicação no Firebase ou similar
+  - Ver o código rodando live (Bucket estático S3, Heroku, Firebase Hosting)
+
+  #### O que nós não gostaríamos
+  - Descobrir que não foi você quem fez seu teste
+  - Ver commits grandes, sem muita explicação nas mensagens em seu repositório
+
+
+  ## O Que Utilizar
+
+  Esperamos que você faça uso das principais tecnologias embarcadas no React e/ou React Native. Use sua criatividade e demonstre suas competências! Lembre-se que cada item abaixo poderá avaliado conforme seu nível de experiência.
+
+  - Expo
+  - React Router (ou similar)
+  - Axios
+  - Hooks
+  - Push Notifications
+  - Toasts
+  - Select Pickers, Date Pickers, Input Masks
+  - Animações
+  - Testes Unitários
+  - Testes Funcionais
+</details>
+
+## 🗺 Roteiro de Desenvolvimento
+
+1. Fiz a análise dos requisitos presentes no defafio;
+2. A partir dos requisitos, realizei a prototipagem das telas que deveriam ser criadas;
+3. A partir do protótipo, iniciei o desenvolvimento da aplicação.
+
+## 🛠 Tecnologias Usadas
+- HTML5
+- CSS3
+- Typescript
+- React
+- ChakraUI
+- MirageJS
+
+## 🎲 Base de dados
+
+A base de dados da aplicação foi feita utilizando o Mirage.js, que permitiu a mockagem das requisições realizadas. Dessa forma, foi possível o desenvolvimento da interface sem a necessidade de um back-end.
+
+
+## 🧙‍♂️ Como Iniciar o Projeto
+
+Primeiro faça a clonagem do projeto em algum diretorio do seu computador:
+```bash
+> cd "algum/diretorio/qualquer"
+> git clone https://github.com/gustavocrvls/gestor-de-accs-frontend.git
+```
+Depois disso instale as dependências:
+```bash
+> yarn install
+```
+
+Você vai precisar criar um arquivo chamado _.env_ na raiz do projeto, preenchendo os campos que estão em _.env.example_:
+
+```env
+REACT_APP_API=
+```
+
+E então é só iniciar o projeto:
+```bash
+> yarn dev
+```
+O projeto vai iniciar em http://localhost:3000.
