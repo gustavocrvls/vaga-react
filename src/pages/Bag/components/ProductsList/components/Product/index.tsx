@@ -5,12 +5,13 @@ import { api } from '../../../../../../services/api';
 import { Product as IProduct } from '../../../../../Products/dtos';
 import { ProductProps } from './dtos';
 
-export function Product({ item }: ProductProps): JSX.Element {
+export function Product({ item, addSubtotal }: ProductProps): JSX.Element {
   const [product, setProduct] = useState<IProduct>({} as IProduct);
 
   useEffect(() => {
     api.get(`products/${item.id}`).then(response => {
       setProduct(response.data);
+      addSubtotal(response.data.price * item.quantity);
     });
   }, []);
 
