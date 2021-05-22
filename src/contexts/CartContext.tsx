@@ -6,8 +6,10 @@ export interface CartItem {
 }
 
 interface CartContextData {
+  total: number;
   items: CartItem[];
   addItem: (item: CartItem) => void;
+  addSubtotal: (subtotal: number) => void;
 }
 
 interface CartProviderProps {
@@ -18,6 +20,11 @@ export const CartContext = createContext({} as CartContextData);
 
 export function CartProvider({ children }: CartProviderProps): JSX.Element {
   const [items, setItems] = useState<CartItem[]>([]);
+  const [total, setTotal] = useState(0);
+
+  function addSubtotal(subtotal: number) {
+    setTotal(total + subtotal);
+  }
 
   function addItem(item: CartItem) {
     if (items.find(it => it.id === item.id)) {
@@ -37,6 +44,8 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
       value={{
         items,
         addItem,
+        addSubtotal,
+        total,
       }}
     >
       {children}

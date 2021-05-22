@@ -1,14 +1,12 @@
 import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
+import { CartContext } from '../../contexts/CartContext';
 import { ProductsList } from './components/ProductsList';
 
 export function Bag(): JSX.Element {
-  const [total, setTotal] = useState(0);
-
-  function addSubtotal(subtotal: number) {
-    setTotal(total + subtotal);
-  }
+  const { total } = useContext(CartContext);
 
   return (
     <Flex
@@ -20,7 +18,7 @@ export function Bag(): JSX.Element {
         <Heading as="h1" marginBottom="4">
           Sacola
         </Heading>
-        <ProductsList addSubtotal={addSubtotal} />
+        <ProductsList />
       </Box>
       <Box textAlign="right">
         <Text as="h3" fontSize="3xl">
@@ -33,6 +31,8 @@ export function Bag(): JSX.Element {
           </strong>
         </Text>
         <Button
+          as={Link}
+          to="/payment"
           rightIcon={<FiArrowRight />}
           type="button"
           colorScheme="blackAlpha"

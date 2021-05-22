@@ -1,12 +1,15 @@
 import { Box, Flex, Heading, Img, Text } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Rating } from '../../../../../../components/Rating';
+import { CartContext } from '../../../../../../contexts/CartContext';
 import { api } from '../../../../../../services/api';
 import { Product as IProduct } from '../../../../../Products/dtos';
 import { ProductProps } from './dtos';
 
-export function Product({ item, addSubtotal }: ProductProps): JSX.Element {
+export function Product({ item }: ProductProps): JSX.Element {
   const [product, setProduct] = useState<IProduct>({} as IProduct);
+
+  const { addSubtotal } = useContext(CartContext);
 
   useEffect(() => {
     api.get(`products/${item.id}`).then(response => {

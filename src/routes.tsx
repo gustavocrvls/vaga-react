@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Container } from './components/Container';
 import { Header } from './components/Header';
 import { Bag } from './pages/Bag';
+import { Payment } from './pages/Payment';
 import { Product } from './pages/Product';
 import { Products } from './pages/Products';
 
@@ -15,6 +16,7 @@ export function Routes(): JSX.Element {
           <Route exact path="/products" component={Products} />
           <Route path="/products/:id" component={Product} />
           <Route path="/bag" component={Bag} />
+          <Route path="/payment" component={Payment} />
         </Switch>
       </Container>
     </BrowserRouter>

@@ -91,7 +91,7 @@ export function Product(): JSX.Element {
               </Text>
               <Text marginTop="2">{book.description}</Text>
 
-              <Flex marginTop="2">
+              <Flex marginTop="2" justifyContent="flex-end">
                 <HStack maxW="200px">
                   <IconButton
                     aria-label="Minus"
@@ -121,8 +121,8 @@ export function Product(): JSX.Element {
                 </HStack>
 
                 <Button
-                  marginLeft="auto"
                   type="button"
+                  marginLeft="2"
                   colorScheme="blackAlpha"
                   backgroundColor="#3D3D3D"
                   onClick={() => buy()}
