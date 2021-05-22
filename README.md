@@ -134,7 +134,7 @@ A base de dados da aplicação foi feita utilizando o Mirage.js, que permitiu a 
 Primeiro faça a clonagem do projeto em algum diretorio do seu computador:
 ```bash
 > cd "algum/diretorio/qualquer"
-> git clone https://github.com/gustavocrvls/gestor-de-accs-frontend.git
+> git clone https://github.com/gustavocrvls/vaga-react.git
 ```
 Depois disso instale as dependências:
 ```bash
