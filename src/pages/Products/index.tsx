@@ -18,7 +18,7 @@ export function Products(): JSX.Element {
       const response = await api.get('products');
       setProducts(response.data);
     } catch (err) {
-      notifyError('Não foi possível carregar os dados...');
+      notifyError('Não foi possível carregar os dados :(');
     } finally {
       setIsLoading(false);
     }

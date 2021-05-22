@@ -14,6 +14,11 @@ import { useContext, useEffect, useState } from 'react';
 import { FiArrowLeft, FiMinus, FiPlus } from 'react-icons/fi';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import {
+  notifyError,
+  notifySuccess,
+  notifyWarning,
+} from '../../components/Notifications';
 import { Rating } from '../../components/Rating';
 import { BagContext } from '../../contexts/BagContext';
 import { api } from '../../services/api';
@@ -21,7 +26,7 @@ import { ParamTypes, IProduct } from './dtos';
 
 export function Product(): JSX.Element {
   const [isLoading, setIsLoading] = useState(true);
-  const [quantity, setQuantity] = useState('0');
+  const [quantity, setQuantity] = useState('1');
   const [product, setProduct] = useState<IProduct>({} as IProduct);
 
   const { id } = useParams<ParamTypes>();
@@ -29,19 +34,16 @@ export function Product(): JSX.Element {
   const { addItem } = useContext(BagContext);
 
   function buy() {
-    if (Number(quantity) === 0) {
-      console.log('err');
-    } else {
-      addItem(
-        {
-          id: Number(id),
-          quantity: Number(quantity),
-        },
-        Number(product.price),
-      );
+    addItem(
+      {
+        id: Number(id),
+        quantity: Number(quantity),
+      },
+      Number(product.price),
+    );
 
-      setQuantity('0');
-    }
+    setQuantity('1');
+    notifySuccess('O produto foi adicionado à sacola!');
   }
 
   useEffect(() => {
@@ -52,7 +54,7 @@ export function Product(): JSX.Element {
         .then(response => setProduct(response.data))
         .then(() => setIsLoading(false));
     } catch (err) {
-      console.error(err);
+      notifyError('Não foi possível buscar o produto :(');
     }
   }, []);
 
@@ -102,9 +104,9 @@ export function Product(): JSX.Element {
                     icon={<FiMinus />}
                     onClick={() => {
                       setQuantity(
-                        Number(quantity) > 0
+                        Number(quantity) > 1
                           ? String(Number(quantity) - 1)
-                          : '0',
+                          : '1',
                       );
                     }}
                   />
