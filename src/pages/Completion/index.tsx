@@ -1,10 +1,17 @@
 import { Box, Button, Flex, Heading } from '@chakra-ui/react';
+import { useContext } from 'react';
 import { FiCheckCircle } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import { notifySuccess } from '../../components/Notifications';
+import { BagContext } from '../../contexts/BagContext';
 import { ProductsList } from '../Bag/components/ProductsList';
 import { PaymentSummary } from './components/PaymentSummary';
 
 export function Completion(): JSX.Element {
+  const { setItems } = useContext(BagContext);
+
+  const history = useHistory();
+
   return (
     <Flex
       direction="column"
@@ -28,12 +35,17 @@ export function Completion(): JSX.Element {
 
       <Box textAlign="center">
         <Button
-          as={Link}
-          to="/products"
           rightIcon={<FiCheckCircle />}
           type="button"
           colorScheme="blackAlpha"
           backgroundColor="#3D3D3D"
+          onClick={() => {
+            notifySuccess(
+              'Compra finalizada. Obrigado por escolher nossa loja!',
+            );
+            setItems([]);
+            history.push('/products');
+          }}
         >
           Finalizar
         </Button>

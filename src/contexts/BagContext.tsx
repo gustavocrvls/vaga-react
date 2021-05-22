@@ -19,6 +19,7 @@ interface BagContextData {
   payment: IPayment;
   addItem: (item: ICartItem, price: number) => void;
   setPayment: (payment: IPayment) => void;
+  setItems: (items: ICartItem[]) => void;
 }
 
 interface BagProviderProps {
@@ -50,10 +51,11 @@ export function BagProvider({ children }: BagProviderProps): JSX.Element {
     <BagContext.Provider
       value={{
         items,
-        addItem,
         total,
         payment,
+        addItem,
         setPayment,
+        setItems,
       }}
     >
       {children}
