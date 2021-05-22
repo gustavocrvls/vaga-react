@@ -1,5 +1,5 @@
-import { CartItem } from '../../../../../../contexts/BagContext';
+import { ICartItem } from '../../../../../../contexts/BagContext';
 
 export interface ProductProps {
-  item: CartItem;
+  item: ICartItem;
 }

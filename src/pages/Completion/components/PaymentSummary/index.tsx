@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { BagContext } from '../../../../contexts/BagContext';
 
 export function PaymentSummary(): JSX.Element {
-  const { total } = useContext(BagContext);
+  const { total, payment } = useContext(BagContext);
   return (
     <Flex
       backgroundColor="gray.200"
@@ -15,11 +15,11 @@ export function PaymentSummary(): JSX.Element {
       <Flex fontSize="xl">
         Parcelas:
         <Text as="strong" marginLeft="3">
-          3x
+          {`${payment.plots}x `}
           {` ${new Intl.NumberFormat('pt-br', {
             style: 'currency',
             currency: 'BRL',
-          }).format(total)}`}
+          }).format(Number(Number(total / payment.plots).toFixed(2)))}`}
         </Text>
       </Flex>
       <Flex fontSize="3xl">

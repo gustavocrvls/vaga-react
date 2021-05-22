@@ -9,22 +9,42 @@ import {
   Button,
   Flex,
 } from '@chakra-ui/react';
-import { useContext } from 'react';
+import { FormEvent, useContext, useState } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 import InputMask from 'react-input-mask';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router';
 import { notifySuccess } from '../../components/Notifications';
 import { BagContext } from '../../contexts/BagContext';
 
 export function Payment(): JSX.Element {
-  const { total } = useContext(BagContext);
+  const [cardNumber, setCardNumber] = useState('');
+  const [cardHolder, setCardHolder] = useState('');
+  const [secutiryDigits, setSecutiryDigits] = useState('');
+  const [validity, setValidity] = useState('');
+  const [plots, setPlots] = useState('');
+
+  const { total, setPayment } = useContext(BagContext);
+
+  const history = useHistory();
+
+  function submit(e: FormEvent) {
+    e.preventDefault();
+
+    setPayment({
+      cardNumber,
+      cardHolder,
+      secutiryDigits: Number(secutiryDigits),
+      validity: new Date(validity),
+      plots: Number(plots),
+    });
+
+    notifySuccess('Cartão cadastrado com sucesso!');
+
+    history.push('/completion');
+  }
 
   return (
-    <form
-      onSubmit={() => {
-        notifySuccess('Cartão cadastrado com sucesso!');
-      }}
-    >
+    <form onSubmit={submit}>
       <Flex
         direction="column"
         minHeight={['calc(100vh - 100px)']}
@@ -45,11 +65,19 @@ export function Payment(): JSX.Element {
                   type="text"
                   variant="filled"
                   placeholder="0000-0000-0000-0000"
+                  value={cardNumber}
+                  onChange={e => setCardNumber(e.target.value)}
                 />
               </FormControl>
               <FormControl id="titular" isRequired>
                 <FormLabel>Nome do títular</FormLabel>
-                <Input type="text" variant="filled" placeholder="Nome" />
+                <Input
+                  type="text"
+                  variant="filled"
+                  placeholder="Nome"
+                  value={cardHolder}
+                  onChange={e => setCardHolder(e.target.value)}
+                />
               </FormControl>
               <SimpleGrid columns={[1, 2]} gap="3">
                 <FormControl id="digitos" isRequired>
@@ -60,6 +88,8 @@ export function Payment(): JSX.Element {
                     type="text"
                     variant="filled"
                     placeholder="000"
+                    value={secutiryDigits}
+                    onChange={e => setSecutiryDigits(e.target.value)}
                   />
                 </FormControl>
                 <FormControl id="validade" isRequired>
@@ -70,6 +100,8 @@ export function Payment(): JSX.Element {
                     type="text"
                     variant="filled"
                     placeholder="MM/AA"
+                    value={validity}
+                    onChange={e => setValidity(e.target.value)}
                   />
                 </FormControl>
               </SimpleGrid>
@@ -80,9 +112,11 @@ export function Payment(): JSX.Element {
                 <Select
                   placeholder="Escolha o número de parcelas"
                   variant="filled"
+                  value={plots}
+                  onChange={e => setPlots(e.target.value)}
                 >
                   {[...Array(12).keys()].map(v => (
-                    <option key={v} value={Number(total / (v + 1)).toFixed(2)}>
+                    <option key={v} value={v + 1}>
                       {`${v + 1}x ${new Intl.NumberFormat('pt-br', {
                         style: 'currency',
                         currency: 'BRL',
