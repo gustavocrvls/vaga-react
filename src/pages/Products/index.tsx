@@ -1,6 +1,7 @@
 import { Box, ButtonGroup, Flex, IconButton } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { FiGrid, FiList } from 'react-icons/fi';
+import { notifyError } from '../../components/Notifications';
 import { api } from '../../services/api';
 import { ProductsCards } from './components/ProductsCards';
 import { ProductsList } from './components/ProductsList';
@@ -10,8 +11,17 @@ export function Products(): JSX.Element {
   const [view, setView] = useState('grid');
   const [products, setProducts] = useState<Product[]>([]);
 
+  async function loadData() {
+    try {
+      const response = await api.get('products');
+      setProducts(response.data);
+    } catch (err) {
+      notifyError('Não foi possível carregar os dados...');
+    }
+  }
+
   useEffect(() => {
-    api.get('products').then(response => setProducts(response.data));
+    loadData();
   }, []);
 
   return (
