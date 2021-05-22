@@ -1,12 +1,4 @@
-import {
-  Box,
-  Flex,
-  Heading,
-  Img,
-  Skeleton,
-  SkeletonText,
-  Text,
-} from '@chakra-ui/react';
+import { Box, Flex, Heading, Img, Skeleton, Text } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { notifyError } from '../../../../../../components/Notifications';
 import { Rating } from '../../../../../../components/Rating';

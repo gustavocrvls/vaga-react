@@ -1,14 +1,24 @@
 import { createContext, ReactNode, useState } from 'react';
 
-export interface CartItem {
+export interface ICartItem {
   id: number;
   quantity: number;
 }
 
+export interface IPayment {
+  cardNumber: string;
+  cardHolder: string;
+  secutiryDigits: number;
+  validity: Date;
+  plots: number;
+}
+
 interface BagContextData {
   total: number;
-  items: CartItem[];
-  addItem: (item: CartItem, price: number) => void;
+  items: ICartItem[];
+  payment: IPayment;
+  addItem: (item: ICartItem, price: number) => void;
+  setPayment: (payment: IPayment) => void;
 }
 
 interface BagProviderProps {
@@ -18,10 +28,11 @@ interface BagProviderProps {
 export const BagContext = createContext({} as BagContextData);
 
 export function BagProvider({ children }: BagProviderProps): JSX.Element {
-  const [items, setItems] = useState<CartItem[]>([]);
+  const [items, setItems] = useState<ICartItem[]>([]);
   const [total, setTotal] = useState(0);
+  const [payment, setPayment] = useState<IPayment>({} as IPayment);
 
-  function addItem(item: CartItem, price: number) {
+  function addItem(item: ICartItem, price: number) {
     if (items.find(it => it.id === item.id)) {
       const newItems = items.map(it =>
         it.id === item.id
@@ -41,6 +52,8 @@ export function BagProvider({ children }: BagProviderProps): JSX.Element {
         items,
         addItem,
         total,
+        payment,
+        setPayment,
       }}
     >
       {children}
