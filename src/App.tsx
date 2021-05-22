@@ -1,5 +1,5 @@
 import { ChakraProvider } from '@chakra-ui/react';
-import { CartProvider } from './contexts/CartContext';
+import { BagProvider } from './contexts/BagContext';
 import { Routes } from './routes';
 
 import theme from './styles/theme';
@@ -7,9 +7,9 @@ import theme from './styles/theme';
 function App(): JSX.Element {
   return (
     <ChakraProvider theme={theme}>
-      <CartProvider>
+      <BagProvider>
         <Routes />
-      </CartProvider>
+      </BagProvider>
     </ChakraProvider>
   );
 }

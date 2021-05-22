@@ -15,7 +15,7 @@ import { FiArrowLeft, FiMinus, FiPlus } from 'react-icons/fi';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Rating } from '../../components/Rating';
-import { CartContext } from '../../contexts/CartContext';
+import { BagContext } from '../../contexts/BagContext';
 import { api } from '../../services/api';
 import { ParamTypes, Book } from './dtos';
 
@@ -26,7 +26,7 @@ export function Product(): JSX.Element {
 
   const { id } = useParams<ParamTypes>();
 
-  const { addItem } = useContext(CartContext);
+  const { addItem } = useContext(BagContext);
 
   function buy() {
     if (Number(quantity) === 0) {
@@ -71,7 +71,7 @@ export function Product(): JSX.Element {
             colorScheme="yellow"
             leftIcon={<FiArrowLeft />}
           >
-            Voltar
+            Livros
           </Button>
           <Flex direction={['column', 'row']} marginBottom="5">
             <Img

@@ -2,11 +2,11 @@ import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react';
 import { useContext, useState } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../../contexts/CartContext';
+import { BagContext } from '../../contexts/BagContext';
 import { ProductsList } from './components/ProductsList';
 
 export function Bag(): JSX.Element {
-  const { total } = useContext(CartContext);
+  const { total } = useContext(BagContext);
 
   return (
     <Flex

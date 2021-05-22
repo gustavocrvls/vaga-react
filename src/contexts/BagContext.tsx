@@ -5,19 +5,19 @@ export interface CartItem {
   quantity: number;
 }
 
-interface CartContextData {
+interface BagContextData {
   total: number;
   items: CartItem[];
   addItem: (item: CartItem, price: number) => void;
 }
 
-interface CartProviderProps {
+interface BagProviderProps {
   children: ReactNode;
 }
 
-export const CartContext = createContext({} as CartContextData);
+export const BagContext = createContext({} as BagContextData);
 
-export function CartProvider({ children }: CartProviderProps): JSX.Element {
+export function BagProvider({ children }: BagProviderProps): JSX.Element {
   const [items, setItems] = useState<CartItem[]>([]);
   const [total, setTotal] = useState(0);
 
@@ -36,7 +36,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
   }
 
   return (
-    <CartContext.Provider
+    <BagContext.Provider
       value={{
         items,
         addItem,
@@ -44,6 +44,6 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
       }}
     >
       {children}
-    </CartContext.Provider>
+    </BagContext.Provider>
   );
 }

@@ -14,10 +14,10 @@ import { FiArrowRight } from 'react-icons/fi';
 
 import InputMask from 'react-input-mask';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../../contexts/CartContext';
+import { BagContext } from '../../contexts/BagContext';
 
 export function Payment(): JSX.Element {
-  const { total } = useContext(CartContext);
+  const { total } = useContext(BagContext);
 
   return (
     <Flex

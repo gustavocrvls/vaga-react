@@ -1,4 +1,4 @@
-import { CartItem } from '../../../../../../contexts/CartContext';
+import { CartItem } from '../../../../../../contexts/BagContext';
 
 export interface ProductProps {
   item: CartItem;

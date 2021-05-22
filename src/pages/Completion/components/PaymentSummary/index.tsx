@@ -1,9 +1,9 @@
-import { Box, Divider, Flex, Text } from '@chakra-ui/layout';
+import { Flex, Text } from '@chakra-ui/layout';
 import { useContext } from 'react';
-import { CartContext } from '../../../../contexts/CartContext';
+import { BagContext } from '../../../../contexts/BagContext';
 
 export function PaymentSummary(): JSX.Element {
-  const { total } = useContext(CartContext);
+  const { total } = useContext(BagContext);
   return (
     <Flex
       backgroundColor="gray.200"

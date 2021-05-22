@@ -3,10 +3,10 @@ import { IconButton } from '@chakra-ui/button';
 import { FiShoppingBag } from 'react-icons/fi';
 import { Badge, Box } from '@chakra-ui/layout';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../../../../contexts/CartContext';
+import { BagContext } from '../../../../contexts/BagContext';
 
 export function Bag(): JSX.Element {
-  const { items } = useContext(CartContext);
+  const { items } = useContext(BagContext);
 
   return (
     <>
